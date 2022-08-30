@@ -95,4 +95,18 @@ public class Job {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+    @Override
+    public String toString() {
+        return "\n" +
+                "ID: " + this.id + '\n' +
+                "Name: " + this.name + '\n' +
+                "Employer: " + this.employer + '\n' +
+                "Location: " + this.location + '\n' +
+                "PositionType: " + this.positionType + '\n' +
+                "CoreCompetency: " + this.coreCompetency +
+                '\n';
+    }
+
+
 }
