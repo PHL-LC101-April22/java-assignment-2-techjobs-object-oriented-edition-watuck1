@@ -66,18 +66,25 @@ public class JobTest {
                 "Name: " + "Product tester" + '\n' +
                 "Employer: " + "ACME" + '\n' +
                 "Location: " + "Desert" + '\n' +
-                "PositionType: " + "Quality control" + '\n' +
-                "CoreCompetency: " + "Persistence" +
+                "Position Type: " + "Quality control" + '\n' +
+                "Core Competency: " + "Persistence" +
                 '\n';
         assertEquals(expected, jobLabelsAndData.toString());
     }
 
     @Test
     public void testToStringHandlesEmptyField () {
-        Job jobLabelsAndData = new Job(" ", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job jobLabelsAndData = new Job("", new Employer(""), new Location(""), new PositionType(""),new CoreCompetency(""));
         String labelData = jobLabelsAndData.toString();
-        boolean emptyField = labelData.contains( "");
-        assertEquals(jobLabelsAndData.getName(), " ");
+        String expected = "\n" +
+                "ID: " + jobLabelsAndData.getId()+ '\n' +
+                "Name: " + "Data not available" + '\n' +
+                "Employer: " + "Data not available" + '\n' +
+                "Location: " + "Data not available" + '\n' +
+                "Position Type: " + "Data not available" + '\n' +
+                "Core Competency: " + "Data not available" +
+                '\n';
+        assertEquals(expected, labelData);
     }
 
 }
